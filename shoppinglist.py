@@ -37,24 +37,29 @@ def mainScreen():
 	
 
 def addScreen():
-	global sl 
-	os.system('cls') # for linux 'clear'
-	print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-	print("     ADD SCREEN    ")
-	print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-	print("\n\n")
-	print("Please enter the name and price of the item that you want to add.")
-	print("Example: Cheese - $2.32")
-	print("Press ENTER to return to the main menu.\n")
-	item = input("\nItem: ")
-	if len(item) > 0:
-		sl.append(item)
-		print("Item added")
-		saveList()
-		time.sleep(1)
-		addScreen()
-	else:
-		mainScreen()
+    global sl
+    os.system('cls')  # for Linux 'clear'
+    print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    print("     ADD SCREEN    ")
+    print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    print("\n\n")
+    print("Please enter the name of the item you want to add.")
+    print("Press ENTER to return to the main menu.\n")
+    item_name = input("\nItem name: ")
+    if len(item_name) > 0:
+        item_price = input("Item price: ")
+        if len(item_price) > 0:
+            item = f"{item_name} - ${item_price}"
+            sl.append(item)
+            print("Item added")
+            saveList()
+            time.sleep(1)
+        else:
+            print("Invalid input")
+            time.sleep(1)
+        addScreen()
+    else:
+        mainScreen()
 	
 
 
