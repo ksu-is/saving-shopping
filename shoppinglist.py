@@ -16,19 +16,19 @@ def mainScreen():
 	print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 	print("\n\nYour list contains",len(sl),"items.\n")
 	print("Please choose from the following options:\n")
-	print("(a)dd to the list")
-	print("(d)elete from the list")
-	print("(v)iew the list")
-	print("(q)uit the program")
+	print("(1) Add to the list")
+	print("(2) Delete from the list")
+	print("(3) View the list")
+	print("(4) Leave the program")
 	choice = input("\nchoice: ")
 	if len(choice) > 0:
-		if choice.lower()[0] == "a":
+		if choice.lower()[0] == "1":
 			addScreen()
-		elif choice.lower()[0] == "d":
+		elif choice.lower()[0] == "2":
 			deleteScreen()
-		elif choice.lower()[0] == "v":
+		elif choice.lower()[0] == "3":
 			viewScreen()
-		elif choice.lower()[0] == "q":
+		elif choice.lower()[0] == "4":
 			sys.exit()
 		else:
 			mainScreen()
@@ -43,12 +43,13 @@ def addScreen():
 	print("     ADD SCREEN    ")
 	print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 	print("\n\n")
-	print("Please enter the name of the item that you want to add.")
+	print("Please enter the name and price of the item that you want to add.")
+	print("Example: Cheese - $2.32")
 	print("Press ENTER to return to the main menu.\n")
 	item = input("\nItem: ")
 	if len(item) > 0:
 		sl.append(item)
-		print("Item added :-)")
+		print("Item added")
 		saveList()
 		time.sleep(1)
 		addScreen()
