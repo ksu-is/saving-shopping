@@ -64,18 +64,27 @@ def addScreen():
 
 
 def viewScreen():
-	os.system('cls') # for linux 'clear'
-	print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-	print("     VIEW SCREEN    ")
-	print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-	print("\n\n")
-	for item in sl:
-		print(item)
-	
-	print("\n\n")
-	print("Press enter to return to the main menu")
-	input()
-	mainScreen()
+    os.system('cls')  # for Linux 'clear'
+    print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    print("     VIEW SCREEN    ")
+    print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    print("\n\n")
+    
+    total_price = 0
+    for item in sl:
+        print(item)
+        try:
+            # Extracting the price part and adding it to the total
+            price = float(item.split('$')[-1])
+            total_price += price
+        except ValueError:
+            print(f"Warning: Could not parse price for item '{item}'. Skipping...")
+
+    print("\nTotal Price: $", round(total_price, 2))
+    print("\n\n")
+    print("Press enter to return to the main menu")
+    input()
+    mainScreen()
 	
 
 	
